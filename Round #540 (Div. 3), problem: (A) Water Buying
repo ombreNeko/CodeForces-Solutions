@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+void main(){
+    long long int q,n,ans=0;
+    long long int a,b;
+    cin>>q;
+    while(q--){
+        ans=0;
+        cin>>n>>a>>b;
+       // cout<<n<<" "<<a<<" "<<b<<endl;
+       
+      //  cout<<b<<" "<<b/(2.0)<<endl;
+        if(a>b)
+        {
+            long long int r=n/2;
+             ans= b*r;
+            if(r*2 < n)
+            {
+                ans=ans+a;
+            }
+            
+        }
+        else
+        {
+            if((b/2.0)>=a)
+            {  // cout<<"here";
+                ans= n*a;
+            }
+            else
+            {
+               long long int r=n/2;
+                 ans= b*r;
+                    if(r*2 < n)
+                      {
+                        ans=ans+a;
+                      }
+            }
+        }  
+        cout<<ans<<endl;
+    }
+}
