@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+int fun(int* arr,int* col, int n,int k,int i)
+{   int w;
+    int * temp=new int[k+1];
+    for(int q=1;q<=k;q++)
+    {
+        temp[q]=1;
+    }
+    
+    for(int p=1;p<i;p++)
+       {
+           if(arr[i]==arr[p])
+           {  temp[col[p]]=0;
+           }
+       }
+     for(w=1;w<=k;w++)
+     {
+         if(temp[w]==1)
+         {
+             return w;
+         }
+     }
+               
+   
+    
+}
+
+int main(){
+    int n,k,count;
+    cin>>n>>k;
+    if(n==k)
+    {
+        cout<<"YES"<<endl;
+        for(int i=1;i<=n;i++)
+        {
+            cout<<i<<" ";
+        }
+        return 0;
+    }
+    int * arr=new int[n+1];
+    int * col=new int[n+1];
+    for(int i=1;i<=n;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    
+   for(int i=1;i<=n;i++)
+   { count=1;
+       for(int j=i+1;j<=n;j++)
+       {
+           if (arr[i]==arr[j])
+           {
+               count++;
+           }
+           if(count>k)
+           {
+               cout<<"NO"<<endl;
+               return 0;
+           }
+       }
+   }
+   
+   //cout<<"YES"<<endl;
+   for(int i=1;i<=k;i++)
+   {
+       col[i]=i;
+       
+   }
+   
+   for(int i=k+1;i<=n;i++)
+   { 
+   
+      col[i]=fun (arr,col,n,k,i);
+       
+   }
+   cout<<"YES"<<endl;
+   for(int i=1;i<=n;i++)
+   {
+       cout<<col[i]<<" ";
+   }
+  // delete []col;
+   delete []arr;
+}
+
