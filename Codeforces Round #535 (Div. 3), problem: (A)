@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+void main(){
+    int q,l1,r1,l2,r2,a,b;
+    cin>>q;
+    while(q--)
+    {
+        cin>>l1>>r1>>l2>>r2;
+        if(l1==l2)
+        {
+            a=l1;
+            b=r2;
+        }
+        else{
+            a=l1;
+            b=l2;
+        }
+        cout<<a<<" "<<b<<endl;
+    }
+}
