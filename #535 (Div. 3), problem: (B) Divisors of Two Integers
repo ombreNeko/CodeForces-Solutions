@@ -1,0 +1,25 @@
+#include <iostream>
+#include <algorithm>
+//#include <bits/stdc++.h>
+using namespace std;
+void main(){
+    int n,x,y;
+    cin>>n;
+    int*arr=new int[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    sort(arr,arr+n);
+    x=arr[n-1];
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]!=-(arr[i-1]) && x%arr[i]==0)
+        {
+            arr[i]=-arr[i];
+        }
+    }
+    sort(arr,arr+n);
+    y=arr[n-1];
+    cout<<x<<" "<<y;
+}
