@@ -1,0 +1,32 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    long int n,i,j;
+    cin>>n;
+    long int * arr=new long int [n];
+    for(int k=0;k<n;k++){
+        cin>>arr[k];
+    }
+    sort(arr, arr+n,greater<long int>());
+    long int maxCount=1;
+    for( i=0;arr[i]>=5 && i<n;i++)
+    {
+        long int cmp=arr[i]-5;
+        long int prCount=1;
+        for(j=i+1;arr[j]>=cmp && j<n;j++)
+        {
+            prCount++;
+        }
+        if(prCount>maxCount)
+        {
+            maxCount=prCount;
+        }
+        if(j==n)
+        {
+            break;
+        }
+    }
+    cout<<maxCount;
+}
